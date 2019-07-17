@@ -19,14 +19,16 @@
         <div class="card-stacked">
           <div class="card-content">
             <h2>{timeOut}</h2>
-            <h6>Going home in 6 hours!</h6>
+            <h6>Going home in 9 hours!</h6>
           </div>
           <div class="card-action">
             {#if isDefaultTimeIn}
               <a
                 class="waves-effect waves-light green accent-4 white-text btn"
                 href="#"
-                on:click={toggleButton}>
+                on:click={toggleButton}
+                disabled
+                >
                 <i class="material-icons left">access_time</i>
                 Change time-in
               </a>
