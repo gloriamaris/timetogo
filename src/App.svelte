@@ -1,11 +1,11 @@
 <script>
-	export let name;
+	import Home from './Home.svelte'
+	export let timeIn = new Date()
+	export let workHours = 9
+	
+	$: timeOut = new Date(timeIn.setHours(timeIn.getHours() + workHours)).toLocaleTimeString('en-US')
 </script>
 
-<style>
-	h1 {
-		color: purple;
-	}
-</style>
+<style></style>
 
-<h1>Hello {name}!</h1>
+<Home timeOut={timeOut} />
