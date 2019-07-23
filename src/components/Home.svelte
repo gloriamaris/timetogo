@@ -1,8 +1,9 @@
 <script>
   import TimeInForm from './TimeInForm.svelte'
-  export let timeIn = new Date()
-	export let workHours = 9
-  export let timeOut = new Date(timeIn.setHours(timeIn.getHours() + workHours)).toLocaleTimeString('en-US')
+
+	const WORK_HOURS = 9
+  let timeIn = new Date()
+  $: timeOut = new Date(timeIn.setHours(timeIn.getHours() + WORK_HOURS)).toLocaleTimeString('en-US')
 
   document.addEventListener('DOMContentLoaded', function() {
 		var elems = document.querySelectorAll('select');
@@ -24,6 +25,7 @@
   <div class="row center">
     <div class="divider"></div>
     <h6 class="grey-text lighten-1">or change time in</h6>
-    <TimeInForm />
+
+    <TimeInForm bind:timeOut={timeOut}/>
   </div>
 </div>

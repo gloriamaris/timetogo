@@ -1,4 +1,7 @@
-<script>
+<script> 
+  import { afterUpdate } from 'svelte'
+  export let timeOut;
+
   let isDefaultTimeIn = true    
   let hours = []    
   let minutes = []    
@@ -16,26 +19,36 @@
   const toggleButton = () => {
     isDefaultTimeIn = !isDefaultTimeIn
   }
+
+  $: hour = 0
+  $: minute = 0
+  $: meridiem = 'AM'
+
+  afterUpdate(() => {
+      console.log({ hour, minute, meridiem })
+      console.log({ timeOut })
+  })
+  
 </script>
 
 <form class="col s8 offset-s4">
   <div class="row">
     <div class="input-field col s2">
-      <select>
-        {#each hours as hour}
-          <option value={hour}>{hour}</option>
+      <select bind:value={hour}>
+        {#each hours as hr}
+          <option value={hr}>{hr}</option>
         {/each}
       </select>
     </div>
     <div class="input-field col s2">
-      <select>
-        {#each minutes as minute}
-          <option value={minute}>{minute}</option>
+      <select bind:value={minute}>
+        {#each minutes as min}
+          <option value={min}>{min}</option>
         {/each}
       </select>
     </div>
     <div class="input-field col s2">
-      <select>
+      <select bind:value={meridiem}>
         <option value="AM">AM</option>
         <option value="PM">PM</option>
       </select>
