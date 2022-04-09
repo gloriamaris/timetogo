@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "material-design-icons": "^3.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "rollup-plugin-postcss": "^2.0.3",
     "sirv-cli": "^0.4.4"
   },
